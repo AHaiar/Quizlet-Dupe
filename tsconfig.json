@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./quizlet-dupe",
+    "ignoreDeprecations": "6.0"
+  },
+  "extends": "expo/tsconfig.base"
+}

@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Alert, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../types';
+import { RootStackParamList, Card } from '../types';
 import { useDecks } from '../context/DecksContext';
 import PrimaryButton from '../components/PrimaryButton';
 
@@ -39,13 +39,13 @@ export default function QuizScreen({ route, navigation }: Props) {
 
     const wrongAnswers = shuffle(
       deck.cards
-        .filter((card) => card.id !== currentCard.id)
-        .map((card) => card.answer)
+        .filter((card: Card) => card.id !== currentCard.id)
+        .map((card: Card) => card.answer)
     ).slice(0, 3);
 
     return shuffle([
       { id: 'correct', value: currentCard.answer, isCorrect: true },
-      ...wrongAnswers.map((answer, index) => ({
+      ...wrongAnswers.map((answer: string, index: number) => ({
         id: `wrong-${index}`,
         value: answer,
         isCorrect: false,
